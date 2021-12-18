@@ -1,0 +1,100 @@
+.addPostContainer {
+  padding: 2vh 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 70vw;
+  margin: auto;
+}
+
+.addPostInput {
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 2vh 2vh;
+  width: 50%;
+  height: 30vh;
+  border: 3px dashed #ffc75f;
+  border-radius: 5px;
+  transition: ease-in;
+  transition-duration: 200ms;
+}
+
+.addPostInput:hover {
+  border: 3px dashed #d65db1;
+  outline: none;
+  transition: ease-in;
+  transition-duration: 200ms;
+}
+
+.addPostInput:focus {
+  border: 3px dashed #ff6f91;
+  outline: none;
+  transition: ease-in;
+  transition-duration: 200ms;
+}
+
+.giphySearchInput {
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-top: 1vh;
+  padding: 2vh 2vh;
+  width: 50%;
+  border: 3px dashed #ffc75f;
+  border-radius: 5px;
+  transition: ease-in;
+  transition-duration: 200ms;
+}
+
+.giphySearchInput:hover {
+  border: 3px dashed #d65db1;
+  outline: none;
+  transition: ease-in;
+  transition-duration: 200ms;
+}
+
+.giphySearchInput:focus {
+  border: 3px dashed #ff6f91;
+  outline: none;
+  transition: ease-in;
+  transition-duration: 200ms;
+}
+
+.giphySelectedImage {
+  margin-top: 1vh;
+}
+
+.giphyImages {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.createPostButton {
+  width: 50%;
+  padding: 1vw !important;
+}
+
+.addPostBottomButtons {
+  display: flex;
+  flex-direction: row;
+}
+
+.addPostContainer button {
+  margin: 2vh 1vw;
+  padding: 5px;
+  border-radius: 5px;
+  border: 0;
+  background-color: #ff9671;
+  transition: linear;
+  transition-duration: 100ms;
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.addPostContainer button:hover {
+  background-color: #ffc75f;
+  transition: linear;
+  transition-duration: 100ms;
+}
