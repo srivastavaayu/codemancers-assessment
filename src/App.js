@@ -29,7 +29,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {console.log("all Posts", this.state.posts)}
         <AddPost addPost={this.addPost} />
         <Posts posts={this.state.posts} />
       </div>

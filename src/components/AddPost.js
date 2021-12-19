@@ -32,7 +32,7 @@ class AddPost extends React.Component {
       },
       async () => {
         await fetch(
-          `https://api.giphy.com/v1/gifs/search?api_key=HoqwGUdmszt1JdjcmBC3kqTg1JzHq5bn&q=${this.state.giphySearchText}&limit=3&lang=en`
+          `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_GIPHY_API_KEY}&q=${this.state.giphySearchText}`
         )
           .then((response) => response.json())
           .then((data) => {
@@ -158,7 +158,7 @@ class AddPost extends React.Component {
                     }));
                   }}
                 >
-                  Add GIF!
+                  Add GIF from Giphy!
                 </button>
                 <button type="button" onClick={this.createPost}>
                   Create Post!
