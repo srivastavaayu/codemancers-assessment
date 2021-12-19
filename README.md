@@ -1,8 +1,8 @@
 # Codemancers Assessment
 
-This application has been developed as a part of assessment by Codemancers.
+This application has been developed as a part of assessment by Codemancers.\
 This application has been deployed to [https://codemancers-assessment.vercel.app/](https://codemancers-assessment.vercel.app/).\
-To run the application on your local server, refer to the Get Started section.
+To run the application on your local server, refer to the [Get Started](https://github.com/srivastavaayu/codemancers-assessment/blob/master/README.md#get-started-with-this-application) section below.
 
 ## Get Started with this application!
 You can view the deployed version of this application [here at https://codemancers-assessment.vercel.app/](https://codemancers-assessment.vercel.app/).
