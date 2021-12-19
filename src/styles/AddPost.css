@@ -28,6 +28,10 @@
     height: 10vh !important;
     font-size: 1.3rem !important;
   }
+
+  .giphySelectedImage {
+    width: 85% !important;
+  }
 }
 
 .emptyPostAlert {
