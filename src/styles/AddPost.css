@@ -29,6 +29,10 @@
     font-size: 1.3rem !important;
   }
 
+  .giphyImage {
+    height: 20vh !important;
+  }
+
   .giphySelectedImage {
     width: 85% !important;
   }
