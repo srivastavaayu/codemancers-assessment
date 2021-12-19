@@ -1,3 +1,46 @@
+@media (max-width: 768px) {
+  .addPostContainer {
+    width: 95vw !important;
+  }
+
+  .addPostInput {
+    width: 80% !important;
+    height: 25vh !important;
+    font-size: 1.1rem !important;
+  }
+
+  .giphySearchInput {
+    width: 80% !important;
+    font-size: 1.1rem !important;
+  }
+
+  .addPostBottomButtons {
+    width: 80% !important;
+    justify-content: space-around !important;
+  }
+
+  .addPostBottomButtons button {
+    width: 30% !important;
+    padding: 2vw 1vh !important;
+  }
+
+  .createPostButton {
+    height: 10vh !important;
+    font-size: 1.3rem !important;
+  }
+}
+
+.emptyPostAlert {
+  display: none;
+  width: 50%;
+  padding: 1vw 2vh;
+  background-color: red;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  margin: 5px auto;
+}
+
 .addPostContainer {
   padding: 2vh 2vw;
   display: flex;
@@ -85,12 +128,12 @@
 
 .createPostButton {
   width: 50%;
-  padding: 1vw !important;
+  height: 20vh;
   font-size: 1.2rem;
 }
 
 .addPostBottomButtons {
-  width: 70%;
+  width: 70vw;
   display: flex;
   flex-direction: row;
   justify-content: center;

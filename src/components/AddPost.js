@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import "../styles/AddPost.css";
 
 class AddPost extends React.Component {
@@ -11,9 +12,11 @@ class AddPost extends React.Component {
       giphySearchText: "",
       giphyReturnData: [],
       giphyImage: "",
+      axiosCancelToken: null,
     };
     this.handleChange = this.handleChange.bind(this);
     this.getGiphyData = this.getGiphyData.bind(this);
+    this.showEmptyPostAlert = this.showEmptyPostAlert.bind(this);
     this.createPost = this.createPost.bind(this);
   }
 
@@ -31,27 +34,50 @@ class AddPost extends React.Component {
         [event.target.name]: event.target.value,
       },
       async () => {
-        await fetch(
-          `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_GIPHY_API_KEY}&q=${this.state.giphySearchText}`
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.meta.status === 200) {
-              this.setState({ ...this.state, giphyReturnData: data });
-            } else {
-              console.log(data);
-            }
-          });
+        if (this.state.axiosCancelToken != null) {
+          this.state.axiosCancelToken.cancel();
+        }
+        let cancelToken = axios.CancelToken.source();
+
+        try {
+          const res = await axios.get(
+            `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_GIPHY_API_KEY}&q=${this.state.giphySearchText}`,
+            { cancelToken: cancelToken.token }
+          );
+          if (res.data.meta.status === 200) {
+            this.setState({
+              ...this.state,
+              giphyReturnData: res.data,
+              axiosCancelToken: cancelToken,
+            });
+          }
+        } catch (error) {
+          console.log(error);
+        }
       }
     );
   }
 
+  showEmptyPostAlert() {
+    document.getElementsByClassName("emptyPostAlert")[0].style.display =
+      "block";
+    setTimeout(() => {
+      document.getElementsByClassName("emptyPostAlert")[0].style.display =
+        "none";
+    }, 2000);
+  }
+
   createPost() {
-    this.props.addPost({
-      postText: this.state.postText,
-      postImageURL: this.state.giphyImage,
-      postTimestamp: new Date().toString().split("GMT")[0],
-    });
+    if (this.state.postText !== "" || this.state.giphyImage !== "") {
+      this.props.addPost({
+        postText: this.state.postText,
+        postImageURL: this.state.giphyImage,
+        postTimestamp: new Date().toString().split("GMT")[0],
+      });
+    } else {
+      this.showEmptyPostAlert();
+    }
+
     this.setState(() => ({
       ...this.state,
       postText: "",
@@ -66,6 +92,7 @@ class AddPost extends React.Component {
   render() {
     return (
       <>
+        <div className="emptyPostAlert">Cannot create an empty post!</div>
         <div className="addPostContainer">
           {!this.state.createPostOpened && (
             <button
